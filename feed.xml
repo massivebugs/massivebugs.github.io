@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-11T21:22:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Running FFmpeg in a PHP script</title><link href="http://localhost:4000/2021/12/08/running-ffmpeg-in-php" rel="alternate" type="text/html" title="Running FFmpeg in a PHP script" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/2021/12/08/running-ffmpeg-in-php</id><content type="html" xml:base="http://localhost:4000/2021/12/08/running-ffmpeg-in-php"><![CDATA[<p>I spent a wasteful amount of time trying to use <em><a href="https://www.php.net/manual/en/function.shell-exec.php">shell_exec()</a></em> and retrieve the exit code, until I realized there was <em><a href="https://www.php.net/manual/en/function.exec.php">exec()</a></em></p>
+
+<p><em><a href="https://www.php.net/manual/en/function.shell-exec.php">shell_exec()</a></em> will return the output as a string, where as with <em><a href="https://www.php.net/manual/en/function.exec.php">exec()</a></em>, you can get both the output and the exit code.</p>
+
+<p>Here’s the code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$output = [];
+$result = 1;
+
+exec('ffmpeg -i in.mp4 -hls_segment_filename \'segment%03d.ts\' out.m3u8', $output, $result)  
+
+if($result === 0) {
+    // Success: ...
+} else {
+    // Failure: report error and cleanup...
+}
+</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[I spent a wasteful amount of time trying to use shell_exec() and retrieve the exit code, until I realized there was exec()]]></summary></entry><entry><title type="html">Basic Docker commands I can never seem to recall…</title><link href="http://localhost:4000/2021/12/08/basic-docker-commands" rel="alternate" type="text/html" title="Basic Docker commands I can never seem to recall…" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/2021/12/08/basic-docker-commands</id><content type="html" xml:base="http://localhost:4000/2021/12/08/basic-docker-commands"><![CDATA[<ul>
+  <li>
+    <p>Pull an image or repo<br />
+<code class="language-plaintext highlighter-rouge">docker pull &lt;name&gt;</code></p>
+  </li>
+  <li>
+    <p>List all images<br />
+<code class="language-plaintext highlighter-rouge">docker images</code></p>
+  </li>
+  <li>
+    <p>List containers (-a for listing stopped containers too)<br />
+<code class="language-plaintext highlighter-rouge">docker ps -a</code></p>
+  </li>
+  <li>
+    <p>Run/start/stop a container process<br />
+<em>(-d for detached mode, -p for binding ports, –network for connecting to network, –name for setting container name)</em>
+<code class="language-plaintext highlighter-rouge">docker run -d -p&lt;host_port&gt;:&lt;container_port&gt; --network &lt;network_name&gt; --name &lt;some_container_name&gt; &lt;image:version&gt;</code><br />
+<code class="language-plaintext highlighter-rouge">docker start &lt;container&gt;</code><br />
+<code class="language-plaintext highlighter-rouge">docker stop &lt;container&gt;</code></p>
+  </li>
+  <li>
+    <p>Start/stop with Compose<br />
+<code class="language-plaintext highlighter-rouge">docker-compose -f &lt;filename&gt;.yaml up</code><br />
+<code class="language-plaintext highlighter-rouge">docker-compose -f &lt;filename&gt;.yaml down</code></p>
+  </li>
+  <li>
+    <p>Get container logs (-f/–follow to follow output like tail)<br />
+<code class="language-plaintext highlighter-rouge">docker logs -f &lt;container&gt;</code></p>
+  </li>
+  <li>
+    <p>Run bash shell in container<br />
+<code class="language-plaintext highlighter-rouge">docker exec -it &lt;container&gt; bash</code></p>
+  </li>
+  <li>
+    <p>Remove all containers/volumes/images<br />
+<code class="language-plaintext highlighter-rouge">docker rm -f $(docker ps -a -q)</code><br />
+<code class="language-plaintext highlighter-rouge">docker volume rm $(docker volume ls -q)</code><br />
+<code class="language-plaintext highlighter-rouge">docker rmi -f $(docker images -a -q</code></p>
+  </li>
+  <li>
+    <p>List, create networks<br />
+<em>(containers run with docker-compose are grouped to default network)</em>
+<code class="language-plaintext highlighter-rouge">docker network ls</code><br />
+<code class="language-plaintext highlighter-rouge">docker network create &lt;some_network_name&gt;</code></p>
+  </li>
+</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[Pull an image or repo docker pull &lt;name&gt;]]></summary></entry></feed>
