@@ -113,11 +113,11 @@ template { display: none; }
 
 .exec.exec-hash:before { content: "$ "; }
 
-.exec:hover { z-index: 1; }
+.exec:hover { z-index: 1; color: transparent; }
 
-.exec:hover:before { content: "$ "; position: absolute; left: 0; width: 100%; background-color: black; color: greenyellow; }
+.exec:hover:before { content: "$ "; position: absolute; top: 0; left: 0; width: 100%; background-color: black; color: greenyellow; }
 
-.exec:hover:after { content: attr(data-exec); white-space: nowrap; position: absolute; left: 1em; font-weight: normal; letter-spacing: 0.15em; background-color: black; color: greenyellow; overflow: hidden; margin: 0 auto; animation: typing 0.3s steps(20, end), blink-caret 0.6s step-end infinite 1s; }
+.exec:hover:after { content: attr(data-exec); white-space: nowrap; position: absolute; top: 0; left: 1em; font-weight: normal; letter-spacing: 0.15em; background-color: black; color: greenyellow; overflow: hidden; margin: 0 auto; animation: typing 0.3s steps(20, end), blink-caret 0.6s step-end infinite 1s; }
 
 /* The typing effect */
 @keyframes typing { from { width: 0; }
@@ -142,5 +142,13 @@ header ul li { margin-bottom: 0; margin-right: 0.3rem; }
 .excerpt { margin-top: 0.3rem; padding: 0.8em; background-color: #f7f7f7; }
 
 .excerpt > p { margin: 0; }
+
+.note-toggler:hover { background-color: rgba(0, 0, 0, 0.1); }
+
+.note-toggler.hidden:hover { cursor: pointer; }
+
+.note-toggler.hidden:hover:after { content: "Click to show answer"; font-size: 0.8em; font-style: italic; margin-left: 0.5em; }
+
+.note-toggler.hidden > span { display: none; }
 
 /*# sourceMappingURL=styles.css.map */
