@@ -107,7 +107,7 @@ template { display: none; }
 /** Add the correct display in IE 10. */
 [hidden] { display: none; }
 
-html { height: 100%; }
+body { padding: 0 1.5em !important; }
 
 body, body h1, body h2, body h3, body h4, body h5, body h6 { color: #383838 !important; }
 
@@ -127,9 +127,9 @@ header .lang-select { position: absolute; right: 0; }
 
 section { margin-top: 1.6rem; margin-bottom: 1.6rem; }
 
-.bio { display: flex; align-items: center; }
+.bio { display: flex; flex-direction: column; align-items: center; text-align: center; }
 
-.bio > *:not(:last-child) { margin-right: 1.6rem; }
+@media (min-width: 992px) { .bio { flex-direction: row; text-align: start; } .bio > *:not(:last-child) { margin-right: 1.6rem; } }
 
 .profile-pic { width: 10em; border: 3px dotted #383838; border-radius: 50%; }
 
