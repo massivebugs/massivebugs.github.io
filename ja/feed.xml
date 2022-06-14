@@ -1,1 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="ja" /><updated>2022-05-29T14:03:21+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cybersecurity Learning Plan</title><link href="/2022/05/29/cybersecurity-learning-plan" rel="alternate" type="text/html" title="Cybersecurity Learning Plan" /><published>2022-05-29T00:00:00+09:00</published><updated>2022-05-29T00:00:00+09:00</updated><id>/2022/05/29/cybersecurity-learning-plan</id><content type="html" xml:base="/2022/05/29/cybersecurity-learning-plan"><![CDATA[Testaatt2022-05-29-cybersecurity-learning-plan]]></content><author><name></name></author><summary type="html"><![CDATA[Testaatt2022-05-29-cybersecurity-learning-plan]]></summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="ja" /><updated>2022-06-15T00:16:11+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順</title><link href="/2022/06/11/portswigger-academy-burp-setup" rel="alternate" type="text/html" title="PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順" /><published>2022-06-11T00:00:00+09:00</published><updated>2022-06-11T00:00:00+09:00</updated><id>/2022/06/11/portswigger-academy-burp-setup</id><content type="html" xml:base="/2022/06/11/portswigger-academy-burp-setup"><![CDATA[<p>手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。<br />
+ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。</p>
+
+<ol>
+  <li>
+    <p>デフォルト設定のままで”Temporary project”を使います。</p>
+  </li>
+  <li>
+    <p>ツールバーで <strong>Target</strong> をクリックし、<strong>Scope</strong>オプションを選択します。</p>
+  </li>
+  <li><strong>Advanced Scope Control</strong>を選択して、以下のように記載してOKをクリックします:
+    <ul>
+      <li>Protocol: HTTPS</li>
+      <li>Host or IP range: ^*.web-security-academy.net$</li>
+      <li>Port: ^443$</li>
+      <li>File: ^/.*</li>
+    </ul>
+
+    <p>これにより、プロキシはlab環境のみターゲットします。</p>
+  </li>
+  <li>
+    <p>ツールバーで<strong>Proxy</strong>をクリックし、<strong>Options</strong>を選択します。</p>
+  </li>
+  <li>
+    <p><strong>Intercept Client Requests</strong>部分で, “And URL Is in target scope”と書いてある４つ目のルールを有効にします。</p>
+  </li>
+  <li>
+    <p>とりあえずこれで大丈夫でしょう。上のメニューバーで<strong>Burp</strong>をクリックし、<strong>User options</strong>のところの<strong>Save user options</strong>を選択して今の設定を保存できます。
+Burpをまた起動するときそのjsonファイルを選択し反映できます。</p>
+  </li>
+  <li>ツールバーで<strong>Proxy</strong>をクリックし、<strong>Intercept is off</strong>をクリックします。<strong>Open Browser</strong>をクリックしてlab環境に入ったらリクエストをインターセプトできます。</li>
+</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。 ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。]]></summary></entry></feed>
