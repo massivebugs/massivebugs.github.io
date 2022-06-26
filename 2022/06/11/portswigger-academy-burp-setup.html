@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>massivebugs - PortSwigger Academy notes - Setting up Burp Suite Community Edition for basic usage</title>
+    <title>massivebugs - PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="massivebugs" />
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>PortSwigger Academy notes - Setting up Burp Suite Community Edition for basic usage | massivebugs</title>
+<title>PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage | massivebugs</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="PortSwigger Academy notes - Setting up Burp Suite Community Edition for basic usage" />
+<meta property="og:title" content="PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="A quick note on getting Burp set up for the labs quickly, intended for using Burp’s integrated Chromium browser." />
 <meta property="og:description" content="A quick note on getting Burp set up for the labs quickly, intended for using Burp’s integrated Chromium browser." />
@@ -27,9 +27,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-06-11T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="PortSwigger Academy notes - Setting up Burp Suite Community Edition for basic usage" />
+<meta property="twitter:title" content="PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-11T00:00:00+09:00","datePublished":"2022-06-11T00:00:00+09:00","description":"A quick note on getting Burp set up for the labs quickly, intended for using Burp’s integrated Chromium browser.","headline":"PortSwigger Academy notes - Setting up Burp Suite Community Edition for basic usage","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/06/11/portswigger-academy-burp-setup"},"url":"/2022/06/11/portswigger-academy-burp-setup"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-11T00:00:00+09:00","datePublished":"2022-06-11T00:00:00+09:00","description":"A quick note on getting Burp set up for the labs quickly, intended for using Burp’s integrated Chromium browser.","headline":"PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/06/11/portswigger-academy-burp-setup"},"url":"/2022/06/11/portswigger-academy-burp-setup"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -59,21 +59,22 @@
     <!-- <a href="/ko//2022/06/11/portswigger-academy-burp-setup">KO</a> -->
   </div>
 </header>
-    <h1>PortSwigger Academy notes - Setting up Burp Suite Community Edition for basic usage</h1>
+    <div class="post">
+  <h1>PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage</h1>
 
-<p>
-  <small>
-    <i>11 Jun 2022</i>
-    
-    
-    in <i><a class="exec" data-exec="cd /post-group/cybersecurity-study-notes"
+  <p>
+    <small>
+      <i>11 Jun 2022</i>
+      
+      
+      in <i><a class="exec" data-exec="cd /post-group/cybersecurity-study-notes"
           href="/post-group/cybersecurity-study-notes">Cybersecurity Study Notes</a></i>
-    
-    <span style="display: block">Tags: </span>
-  </small>
-</p>
+      
+      <span style="display: block">Tags: burp-suite, portswigger-web-academy</span>
+    </small>
+  </p>
 
-<p>A quick note on getting Burp set up for the labs quickly, 
+  <p>A quick note on getting Burp set up for the labs quickly, 
 intended for using Burp’s integrated Chromium browser.</p>
 
 <ol>
@@ -92,20 +93,27 @@ intended for using Burp’s integrated Chromium browser.</p>
     </ul>
 
     <p>This will allow the proxy to target the lab environment.</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/burp-setup-1.mp4" controls="" loop="" muted=""></video>
   </li>
   <li>
     <p>Click on <strong>Proxy</strong> on the toolbar, and select <strong>Options</strong></p>
   </li>
   <li>
     <p>In the <strong>Intercept Client Requests</strong> section, <strong>enable the 4th rule</strong> (And URL Is in target scope)</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/burp-setup-2.mp4" controls="" loop="" muted=""></video>
   </li>
   <li>
     <p>That should be good for starting off. Save the configuration by clicking <strong>Burp</strong> on the top menu bar, <strong>User options</strong> and then <strong>Save user options</strong>
 You can apply the configuration when you start Burp again.</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/burp-setup-3.mp4" controls="" loop="" muted=""></video>
   </li>
   <li>Click on <strong>Proxy</strong> on the toolar and click <strong>Intercept is off</strong>. Click on <strong>Open Browser</strong> and enter the lab environment to intercept requests.</li>
 </ol>
 
+</div>
     <script src="/assets/js/main.js"></script>
 </body>
 

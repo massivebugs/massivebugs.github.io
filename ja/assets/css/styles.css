@@ -127,6 +127,10 @@ header .lang-select { position: absolute; right: 0; }
 
 section { margin-top: 1.6rem; margin-bottom: 1.6rem; }
 
+.post video { border: 1px solid black; }
+
+.new-post::before { content: "New!"; position: relative; background-color: #f96459; color: white; border-radius: 5em; padding: 0.1em 0.5em; font-size: 0.7em; margin-right: 0.2em; }
+
 .bio { display: flex; flex-direction: column; align-items: center; text-align: center; }
 
 @media (min-width: 992px) { .bio { flex-direction: row; text-align: start; } .bio > *:not(:last-child) { margin-right: 1.6rem; } }

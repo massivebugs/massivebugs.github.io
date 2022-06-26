@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>massivebugs - PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順</title>
+    <title>massivebugs - PortSwigger Academy Notes - Burp Suite Community Editionの簡単設定手順</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="massivebugs" />
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順 | massivebugs</title>
+<title>PortSwigger Academy Notes - Burp Suite Community Editionの簡単設定手順 | massivebugs</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順" />
+<meta property="og:title" content="PortSwigger Academy Notes - Burp Suite Community Editionの簡単設定手順" />
 <meta property="og:locale" content="ja" />
 <meta name="description" content="手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。 ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。" />
 <meta property="og:description" content="手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。 ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。" />
@@ -27,9 +27,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-06-11T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順" />
+<meta property="twitter:title" content="PortSwigger Academy Notes - Burp Suite Community Editionの簡単設定手順" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-11T00:00:00+09:00","datePublished":"2022-06-11T00:00:00+09:00","description":"手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。 ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。","headline":"PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/06/11/portswigger-academy-burp-setup"},"url":"/2022/06/11/portswigger-academy-burp-setup"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-11T00:00:00+09:00","datePublished":"2022-06-11T00:00:00+09:00","description":"手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。 ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。","headline":"PortSwigger Academy Notes - Burp Suite Community Editionの簡単設定手順","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/06/11/portswigger-academy-burp-setup"},"url":"/2022/06/11/portswigger-academy-burp-setup"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -59,21 +59,22 @@
     <!-- <a href="/ko//2022/06/11/portswigger-academy-burp-setup">KO</a> -->
   </div>
 </header>
-    <h1>PortSwigger Academy notes - Burp Suite Community Editionの簡単設定手順</h1>
+    <div class="post">
+  <h1>PortSwigger Academy Notes - Burp Suite Community Editionの簡単設定手順</h1>
 
-<p>
-  <small>
-    <i>11 Jun 2022</i>
-    
-    
-    in <i><a class="exec" data-exec="cd /ja/post-group/cybersecurity-study-notes"
+  <p>
+    <small>
+      <i>11 Jun 2022</i>
+      
+      
+      in <i><a class="exec" data-exec="cd /ja/post-group/cybersecurity-study-notes"
           href="/ja/post-group/cybersecurity-study-notes">Cybersecurity Study Notes</a></i>
-    
-    <span style="display: block">タグ: </span>
-  </small>
-</p>
+      
+      <span style="display: block">タグ: burp-suite, portswigger-web-academy</span>
+    </small>
+  </p>
 
-<p>手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。<br />
+  <p>手早くPortSwigger Web Security AcademyのためにBurpを設定する方法を記載します。<br />
 ブラウザーはBurpに含まれてるブラウザー（Chromium）を使います。</p>
 
 <ol>
@@ -92,20 +93,27 @@
     </ul>
 
     <p>これにより、プロキシはlab環境のみターゲットします。</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/burp-setup-1.mp4" controls="" loop="" autoplay="" muted=""></video>
   </li>
   <li>
     <p>ツールバーで<strong>Proxy</strong>をクリックし、<strong>Options</strong>を選択します。</p>
   </li>
   <li>
     <p><strong>Intercept Client Requests</strong>部分で, “And URL Is in target scope”と書いてある４つ目のルールを有効にします。</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/burp-setup-2.mp4" controls="" loop="" autoplay="" muted=""></video>
   </li>
   <li>
     <p>とりあえずこれで大丈夫でしょう。上のメニューバーで<strong>Burp</strong>をクリックし、<strong>User options</strong>のところの<strong>Save user options</strong>を選択して今の設定を保存できます。
 Burpをまた起動するときそのjsonファイルを選択し反映できます。</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/burp-setup-3.mp4" controls="" loop="" autoplay="" muted=""></video>
   </li>
   <li>ツールバーで<strong>Proxy</strong>をクリックし、<strong>Intercept is off</strong>をクリックします。<strong>Open Browser</strong>をクリックしてlab環境に入ったらリクエストをインターセプトできます。</li>
 </ol>
 
+</div>
     <script src="/assets/js/main.js"></script>
 </body>
 
