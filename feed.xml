@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-06-30T20:53:13+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Plans for a new Robot project 1</title><link href="/2022/06/30/robot-project-plans-1" rel="alternate" type="text/html" title="Plans for a new Robot project 1" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/robot-project-plans-1</id><content type="html" xml:base="/2022/06/30/robot-project-plans-1"><![CDATA[<p>I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-06-30T22:57:41+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Plans for a new Robot project 1</title><link href="/2022/06/30/robot-project-plans-1" rel="alternate" type="text/html" title="Plans for a new Robot project 1" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/robot-project-plans-1</id><content type="html" xml:base="/2022/06/30/robot-project-plans-1"><![CDATA[<p>I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.</p>
 
 <p>I expect the design to look something like this:</p>
 
@@ -172,11 +172,66 @@ Plus, I was far too broke to buy decent components for my robots.</p>
 
 <p>2~3 years later, which is now, I want to make a new robot. Just for fun, and to see how far I have gotten.</p>
 
-<p>Even though I have only been focusing on the software part, I hope I will enjoy the building process with a more calm and fresh mind.</p>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses</title><link href="/2022/06/26/portswigger-academy-authentication-password-based-1" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses" /><published>2022-06-26T00:00:00+09:00</published><updated>2022-06-26T00:00:00+09:00</updated><id>/2022/06/26/portswigger-academy-authentication-password-based-1</id><content type="html" xml:base="/2022/06/26/portswigger-academy-authentication-password-based-1"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.</p>
+<p>Even though I have only been focusing on the software part, I hope I will enjoy the building process with a more calm and fresh mind.</p>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses</title><link href="/2022/06/30/portswigger-academy-authentication-password-based-2" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/portswigger-academy-authentication-password-based-2</id><content type="html" xml:base="/2022/06/30/portswigger-academy-authentication-password-based-2"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.<br />
+This time, the error messages in the login page seemed be a little more generic and identical..?</p>
 
-<h3 id="password-based-login">Password-based login</h3>
-<h4 id="1-username-enumeration-via-different-responses">1. Username enumeration via different responses</h4>
+<h3 id="password-based-login-2---username-enumeration-via-subtly-different-responses">Password-based login 2 - Username enumeration via subtly different responses</h3>
+<p>The idea:</p>
+<ul>
+  <li>Developers may leave subtle hints in authentication messages, which may reveal attack surface.</li>
+</ul>
 
+<p>Notes:</p>
+<ul>
+  <li>Be careful not to mistype authentication error messages. Keep a central config file, and only use that.</li>
+</ul>
+
+<p>Tools:</p>
+<ul>
+  <li>BurpSuite (Proxy, Intruder)</li>
+</ul>
+
+<p>Process:</p>
+<ol>
+  <li>
+    <p>A wrong input resulted in the message “Invalid username or password.” displayed on the screen.</p>
+  </li>
+  <li>
+    <p>I wanted to observe the behaviour a bit more, so I tried enumerating usernames using the wordlist to see if any usernames yield a different error message.
+I also grepped for “Invalid username or password.”</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-1.mp4" controls="" loop="" muted=""></video>
+  </li>
+  <li>
+    <p>One of the usernames “auth” returned “Invalid username or password”, which is missing a period at the end.</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-2.mp4" controls="" loop="" muted=""></video>
+  </li>
+  <li>
+    <p>I tried brute forcing the user “auth” with Intruder once again, and I was able to log in using the password “112233”.</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-3.mp4" controls="" loop="" muted=""></video>
+  </li>
+</ol>]]></content><author><name></name></author><category term="portswigger-web-academy" /><category term="burp-suite" /><category term="brute-force" /><category term="authentication" /><summary type="html"><![CDATA[In this lab, I used Burp to enumerate usernames and brute force the password of a user. This time, the error messages in the login page seemed be a little more generic and identical..?]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses</title><link href="/2022/06/26/portswigger-academy-authentication-password-based-1" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses" /><published>2022-06-26T00:00:00+09:00</published><updated>2022-06-26T00:00:00+09:00</updated><id>/2022/06/26/portswigger-academy-authentication-password-based-1</id><content type="html" xml:base="/2022/06/26/portswigger-academy-authentication-password-based-1"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.</p>
+
+<h3 id="password-based-login-1---username-enumeration-via-different-responses">Password-based login 1 - Username enumeration via different responses</h3>
+
+<p>The idea:</p>
+<ul>
+  <li>Having different response messages for invalid inputs (username and password) may allow for a username enumeration attack.</li>
+</ul>
+
+<p>Notes:</p>
+<ul>
+  <li>Even if only one of the authentication fields is invalid, return a unified message.</li>
+</ul>
+
+<p>Tools:</p>
+<ul>
+  <li>BurpSuite (Proxy, Intruder)</li>
+</ul>
+
+<p>Process:</p>
 <ol>
   <li>
     <p>After accessing the lab and attempting to log in with a random username, a “Invalid username” message popped up.</p>

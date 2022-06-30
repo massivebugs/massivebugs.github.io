@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="ja" /><updated>2022-06-30T20:53:13+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">新しいロボットプロジェクトの計画１</title><link href="/2022/06/30/robot-project-plans-1" rel="alternate" type="text/html" title="新しいロボットプロジェクトの計画１" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/robot-project-plans-1</id><content type="html" xml:base="/2022/06/30/robot-project-plans-1"><![CDATA[<p>小さくて、持ち歩き安い、カメラと道を照らす機能付きのランタン型のロボットを作りたいと思います。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="ja" /><updated>2022-06-30T22:57:41+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">新しいロボットプロジェクトの計画１</title><link href="/2022/06/30/robot-project-plans-1" rel="alternate" type="text/html" title="新しいロボットプロジェクトの計画１" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/robot-project-plans-1</id><content type="html" xml:base="/2022/06/30/robot-project-plans-1"><![CDATA[<p>小さくて、持ち歩き安い、カメラと道を照らす機能付きのランタン型のロボットを作りたいと思います。</p>
 
 <p>正直上手に作れるか心配ですが、こんな形を予想してます：</p>
 
@@ -169,10 +169,64 @@ Robot Builder’s Bonanza</a>と言う本を買って勉強を始めたのが始
 
 <p>2~3年達だ今、最近またロボットを作りたいと思いました。</p>
 
-<p>今度こそもう少し楽しく、安定した気持ちで作れたらいいなと思います。</p>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[小さくて、持ち歩き安い、カメラと道を照らす機能付きのランタン型のロボットを作りたいと思います。]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses</title><link href="/2022/06/26/portswigger-academy-authentication-password-based-1" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses" /><published>2022-06-26T00:00:00+09:00</published><updated>2022-06-26T00:00:00+09:00</updated><id>/2022/06/26/portswigger-academy-authentication-password-based-1</id><content type="html" xml:base="/2022/06/26/portswigger-academy-authentication-password-based-1"><![CDATA[<p>Burpを使ってユーザ名とパスワードをブルートフォースしました。</p>
+<p>今度こそもう少し楽しく、安定した気持ちで作れたらいいなと思います。</p>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[小さくて、持ち歩き安い、カメラと道を照らす機能付きのランタン型のロボットを作りたいと思います。]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses</title><link href="/2022/06/30/portswigger-academy-authentication-password-based-2" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/portswigger-academy-authentication-password-based-2</id><content type="html" xml:base="/2022/06/30/portswigger-academy-authentication-password-based-2"><![CDATA[<p>Burpを使ってユーザ名とパスワードをブルートフォースしました。<br />
+今回はログイン時同じ、もしくは似てるエラーメッセージが返される前提でした。</p>
 
-<h3 id="password-based-login">Password-based login</h3>
-<h4 id="1-username-enumeration-via-different-responses">1. Username enumeration via different responses</h4>
+<h3 id="password-based-login-2---username-enumeration-via-subtly-different-responses">Password-based login 2 - Username enumeration via subtly different responses</h3>
+<p>The idea:</p>
+<ul>
+  <li>よく見ると返されるメッセージが同じだと思ったら少し違うメッセージが返されるて、それで攻撃面積（？）のヒントを得られる可能性がある。</li>
+</ul>
+
+<p>Notes:</p>
+<ul>
+  <li>エラーメッセージはまとめて管理しましょう。</li>
+</ul>
+
+<p>Tools:</p>
+<ul>
+  <li>BurpSuite (Proxy, Intruder)</li>
+</ul>
+
+<p>Process:</p>
+<ol>
+  <li>
+    <p>ランダムなユーザ名とパスワードでログインしたら”Invalid username or password.”とエラーメッセージが表示されました。</p>
+  </li>
+  <li>
+    <p>この部分をもう少し調べるためユーザ名をIntruderで列挙攻撃をしてみました。BurpのIntruderでは”Invalid username or password.”をgrepするように設定しました。</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-1.mp4" controls="" loop="" muted=""></video>
+  </li>
+  <li>
+    <p>“auth”と言うユーザ名で似てるけど同じではないメッセージが返されました。”Invalid username or password”で、最後に　”.”　がないですね。</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-2.mp4" controls="" loop="" muted=""></video>
+  </li>
+  <li>
+    <p>“auth”ユーザのパスワードをIntruderでブルートフォースしたら”112233”パスワードが通りました.</p>
+
+    <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-3.mp4" controls="" loop="" muted=""></video>
+  </li>
+</ol>]]></content><author><name></name></author><category term="portswigger-web-academy" /><category term="burp-suite" /><category term="brute-force" /><category term="authentication" /><summary type="html"><![CDATA[Burpを使ってユーザ名とパスワードをブルートフォースしました。 今回はログイン時同じ、もしくは似てるエラーメッセージが返される前提でした。]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses</title><link href="/2022/06/26/portswigger-academy-authentication-password-based-1" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses" /><published>2022-06-26T00:00:00+09:00</published><updated>2022-06-26T00:00:00+09:00</updated><id>/2022/06/26/portswigger-academy-authentication-password-based-1</id><content type="html" xml:base="/2022/06/26/portswigger-academy-authentication-password-based-1"><![CDATA[<p>Burpを使ってユーザ名とパスワードをブルートフォースしました。</p>
+
+<h3 id="password-based-login-1---username-enumeration-via-different-responses">Password-based login 1 - Username enumeration via different responses</h3>
+<p>The idea:</p>
+<ul>
+  <li>ユーザ名もしくはパスワード違った時、返されたエラーメッセージによってユーザ名列挙攻撃ができる可能性がある。</li>
+</ul>
+
+<p>Notes:</p>
+<ul>
+  <li>どちらかが違っても、同じエラーメッセージを返すこと。</li>
+</ul>
+
+<p>Tools:</p>
+<ul>
+  <li>BurpSuite (Proxy, Intruder)</li>
+</ul>
+
+<p>Process:</p>
 
 <ol>
   <li>
