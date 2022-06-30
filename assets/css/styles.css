@@ -107,7 +107,7 @@ template { display: none; }
 /** Add the correct display in IE 10. */
 [hidden] { display: none; }
 
-body { padding: 0 1.5em !important; }
+body { padding-bottom: 25% !important; }
 
 body, body h1, body h2, body h3, body h4, body h5, body h6 { color: #383838 !important; }
 
