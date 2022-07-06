@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+<head lang="ja">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>massivebugs - Plans for a new Robot project 2</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/assets/icons/dripicons/webfont/webfont.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="massivebugs" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Plans for a new Robot project 2 | massivebugs</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Plans for a new Robot project 2" />
+<meta property="og:locale" content="ja" />
+<meta name="description" content="新しいロボットプロジェクトノートのパート２です パート 1" />
+<meta property="og:description" content="新しいロボットプロジェクトノートのパート２です パート 1" />
+<link rel="canonical" href="http://localhost:4000/2022/07/06/robot-project-plans-2" />
+<meta property="og:url" content="http://localhost:4000/2022/07/06/robot-project-plans-2" />
+<meta property="og:site_name" content="massivebugs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-06T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Plans for a new Robot project 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-06T00:00:00+09:00","datePublished":"2022-07-06T00:00:00+09:00","description":"新しいロボットプロジェクトノートのパート２です パート 1","headline":"Plans for a new Robot project 2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/07/06/robot-project-plans-2"},"url":"http://localhost:4000/2022/07/06/robot-project-plans-2"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+</head>
+
+<body>
+    <header>
+  <a class="exec exec-hash" data-exec="cd ~" href="/ja/">
+    massivebugs
+  </a>
+  <nav>
+    <ul>
+      
+      <li>
+        <a class="exec" data-exec="cd /ja/about/" href="/ja/about/" >About</a>
+      </li>
+      
+      <li>
+        <a class="exec" data-exec="cd /ja/post-groups/" href="/ja/post-groups/" >Post-Groups</a>
+      </li>
+      
+    </ul>
+  </nav>
+  <div class="lang-select">
+    <a href="/2022/07/06/robot-project-plans-2">EN</a>
+    <a href="/ja/2022/07/06/robot-project-plans-2">JA</a>
+    <!-- <a href="/ko//2022/07/06/robot-project-plans-2">KO</a> -->
+  </div>
+</header>
+    <div class="post">
+  <h1>Plans for a new Robot project 2</h1>
+
+  <p>
+    <small>
+      <i>06 Jul 2022</i>
+      
+      
+      in <i><a class="exec" data-exec="cd /ja/post-group/projects"
+          href="/ja/post-group/projects">Projects</a></i>
+      
+      <span style="display: block">タグ: robots, arduino, raspberry-pi</span>
+    </small>
+  </p>
+
+  <p>新しいロボットプロジェクトノートのパート２です <br />
+<a href="/2022/06/30/robot-project-plans-1">パート 1</a></p>
+
+<p>小さくて、持ち歩きやすい、カメラと道を照らす機能付きのランタン型のロボットを作りたいと思います。<br />
+もう少しロボットのデザインをスケッチしました。うまく作れたらいいですね。</p>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+<style>
+    .swiper {
+        height: 400px;
+    }
+
+    .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+    }
+
+    .swiper-slide>* {
+        max-height: 100%;
+    }
+</style>
+
+<div class="swiper" id="swiper-2">
+    <div class="swiper-wrapper">
+        
+        
+        <div class="swiper-slide">
+            
+    <img src="/assets/images/unnamed_robot_idea_3.jpg" />
+        </div>
+        
+        <div class="swiper-slide">
+            
+    <img src="/assets/images/unnamed_robot_idea_4.jpg" />
+        </div>
+        
+        <div class="swiper-slide">
+            
+    <img src="/assets/images/unnamed_robot_idea_5.jpg" />
+
+        </div>
+        
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div>
+<p style="text-align: center; padding-top: 1em;">
+    Additional ideas for unnamed robot
+</p>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+    new Swiper('#swiper-2', {
+        // Optional parameters
+        loop: true,
+        effect: 'cube',
+        autoplay: {
+            delay: 2000
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '#swiper-2 .swiper-pagination',
+        },
+    });
+</script>
+
+<h4 id="プロジェクト名">プロジェクト名:</h4>
+<ul>
+  <li>Lantern</li>
+</ul>
+
+<h4 id="使えるところの概要">使えるところの概要</h4>
+<ol>
+  <li><strong>ランプ</strong>のように使えて持ち運びやすいように上部に取手がついてる。
+    <ul>
+      <li>音声コマンドでオンオフできる。</li>
+      <li>光加減を調整できる。</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>カメラ</strong>として使えて、自撮りやポートレートを撮るとき自動でポジション修正してうまく写真を撮ってくれる。取手をどこかに引っ掛けてセキュリティーカメラとしても使える。</p>
+  </li>
+  <li><strong>データ収集</strong>用でも使える。
+    <ul>
+      <li>モジュール化したセンサーを取り付けることで増やせる。</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="入れたい機能">入れたい機能</h4>
+<ul>
+  <li>顔認識</li>
+  <li>オブジェクト追跡</li>
+  <li>回転できるカメラ</li>
+  <li>マイクとボイスコマンド</li>
+  <li>スピーカーと音声フィードバック</li>
+  <li>複数のLEDランプモード</li>
+  <li>取り付け可能なセンサーモジュール</li>
+  <li>4-9DOFのトライポッド足</li>
+</ul>
+
+</div>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
