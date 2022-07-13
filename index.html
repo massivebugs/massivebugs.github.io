@@ -11,9 +11,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="/assets/icons/dripicons/webfont/webfont.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/water.min.css">
+    <link rel="stylesheet" href="/assets/css/fruity.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="massivebugs" />
+    <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="massivebugs" />
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Home | massivebugs</title>
 <meta name="generator" content="Jekyll v4.2.1" />
@@ -21,14 +23,14 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="/" />
+<meta property="og:url" content="/" />
 <meta property="og:site_name" content="massivebugs" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Home" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Home","name":"massivebugs","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Home","name":"massivebugs","url":"/"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -66,6 +68,29 @@
   
   
   
+  <li class="post-list-item" data-date="2022-07-10 00:00:00 +0900">
+    <a class="exec" data-exec="less /2022/07/10/lantern-devnote-1"
+      href="/2022/07/10/lantern-devnote-1">
+      Lantern Dev Note 1 - Setting up VS Code + Raspberry Pi 3 B+ remote development, flashing the "Hello, world!" LED
+    </a>
+    <small style="display: block">
+      <i>10 Jul 2022</i>
+      
+      in <i><a class="exec" data-exec="less /post-group/lantern"
+          href="/post-group/lantern">Lantern Robot Project</a></i>
+      
+    </small>
+    <div class="excerpt">
+      <p>This is part 3 of a series of my <a href="/post-group/lantern">Lantern robot project</a>.<br />
+In the “Lantern Dev Note” series of posts, I will be walking through the process I take to develop the robot.<br />
+Since I’m not so experienced with robot projects, I will start small, and develop incrementally one at a time.
+I’m using a Windows 10 PC and a Raspberry Pi 3 B+ for development.</p>
+
+      <small><a href="/2022/07/10/lantern-devnote-1">Continue reading...</a></small>
+    </div>
+  </li>
+  
+  
   <li class="post-list-item" data-date="2022-07-06 00:00:00 +0900">
     <a class="exec" data-exec="less /2022/07/06/robot-project-plans-2"
       href="/2022/07/06/robot-project-plans-2">
@@ -74,13 +99,14 @@
     <small style="display: block">
       <i>06 Jul 2022</i>
       
-      in <i><a class="exec" data-exec="less /post-group/projects"
-          href="/post-group/projects">Projects</a></i>
+      in <i><a class="exec" data-exec="less /post-group/lantern"
+          href="/post-group/lantern">Lantern Robot Project</a></i>
       
     </small>
     <div class="excerpt">
-      <p>This is part 2 of a series of my new robot project posts.<br />
-<a href="/2022/06/30/robot-project-plans-1">Part 1</a></p>
+      <p>This is part 2 of a series of my <a href="/post-group/lantern">Lantern robot project</a>.<br />
+I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.<br />
+I made a few very rough sketches and designs of some of the ideas I have for this robot.</p>
 
       <small><a href="/2022/07/06/robot-project-plans-2">Continue reading...</a></small>
     </div>
@@ -95,12 +121,14 @@
     <small style="display: block">
       <i>30 Jun 2022</i>
       
-      in <i><a class="exec" data-exec="less /post-group/projects"
-          href="/post-group/projects">Projects</a></i>
+      in <i><a class="exec" data-exec="less /post-group/lantern"
+          href="/post-group/lantern">Lantern Robot Project</a></i>
       
     </small>
     <div class="excerpt">
-      <p>I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.</p>
+      <p>This is part 1 of a series of my <a href="/post-group/lantern">Lantern robot project</a>.<br />
+I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.<br />
+I expect the design to look something like this:</p>
 
       <small><a href="/2022/06/30/robot-project-plans-1">Continue reading...</a></small>
     </div>
@@ -144,27 +172,6 @@ This time, the error messages in the login page seemed be a little more generic 
       <p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.</p>
 
       <small><a href="/2022/06/26/portswigger-academy-authentication-password-based-1">Continue reading...</a></small>
-    </div>
-  </li>
-  
-  
-  <li class="post-list-item" data-date="2022-06-11 00:00:00 +0900">
-    <a class="exec" data-exec="less /2022/06/11/portswigger-academy-burp-setup"
-      href="/2022/06/11/portswigger-academy-burp-setup">
-      PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage
-    </a>
-    <small style="display: block">
-      <i>11 Jun 2022</i>
-      
-      in <i><a class="exec" data-exec="less /post-group/cybersecurity-study-notes"
-          href="/post-group/cybersecurity-study-notes">Cybersecurity Study Notes</a></i>
-      
-    </small>
-    <div class="excerpt">
-      <p>A quick note on getting Burp set up for the labs quickly, 
-intended for using Burp’s integrated Chromium browser.</p>
-
-      <small><a href="/2022/06/11/portswigger-academy-burp-setup">Continue reading...</a></small>
     </div>
   </li>
   

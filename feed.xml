@@ -1,7 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-07-06T23:06:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Plans for a new Robot project 2</title><link href="http://localhost:4000/2022/07/06/robot-project-plans-2" rel="alternate" type="text/html" title="Plans for a new Robot project 2" /><published>2022-07-06T00:00:00+09:00</published><updated>2022-07-06T00:00:00+09:00</updated><id>http://localhost:4000/2022/07/06/robot-project-plans-2</id><content type="html" xml:base="http://localhost:4000/2022/07/06/robot-project-plans-2"><![CDATA[<p>This is part 2 of a series of my new robot project posts.<br />
-<a href="/2022/06/30/robot-project-plans-1">Part 1</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-07-13T23:51:15+09:00</updated><id>/feed.xml</id><title type="html">massivebugs</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Lantern Dev Note 1 - Setting up VS Code + Raspberry Pi 3 B+ remote development, flashing the “Hello, world!” LED</title><link href="/2022/07/10/lantern-devnote-1" rel="alternate" type="text/html" title="Lantern Dev Note 1 - Setting up VS Code + Raspberry Pi 3 B+ remote development, flashing the “Hello, world!” LED" /><published>2022-07-10T00:00:00+09:00</published><updated>2022-07-10T00:00:00+09:00</updated><id>/2022/07/10/lantern-devnote-1</id><content type="html" xml:base="/2022/07/10/lantern-devnote-1"><![CDATA[<p>This is part 3 of a series of my <a href="/post-group/lantern">Lantern robot project</a>.<br />
+In the “Lantern Dev Note” series of posts, I will be walking through the process I take to develop the robot.<br />
+Since I’m not so experienced with robot projects, I will start small, and develop incrementally one at a time.
+I’m using a Windows 10 PC and a Raspberry Pi 3 B+ for development.</p>
 
-<p>I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.
+<h3 id="1-installing-raspberry-pi-os-using-the-imager">1. Installing Raspberry Pi OS using the imager</h3>
+<p>I’m going to be using <a href="https://www.raspberrypi.com/software/"><strong>Raspberry Pi Imager</strong></a> to install the operating system for the RPi, as it is the most simplest method of getting the OS up and running.</p>
+
+<p><img src="/assets/images/lantern_devnote_installing_rpi_os_1.png" alt="Download Raspberry Pi Imager from 'https://www.raspberrypi.com/software/'" /></p>
+
+<p>Choose “Raspberry Pi OS Lite (32-bit)”</p>
+
+<p><img src="/assets/images/lantern_devnote_installing_rpi_os_2.png" alt="Download Raspberry Pi Imager from 'https://www.raspberrypi.com/software/'" /></p>
+
+<p>Choose the following options in “Advanced options”. This will allow you to SSH into the RPi using “raspberrypi.local” resolved through <a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#resolving-raspberrypi-local-with-mdns">mDNS</a></p>
+
+<p><img src="/assets/images/lantern_devnote_installing_rpi_os_3.png" alt="Download Raspberry Pi Imager from 'https://www.raspberrypi.com/software/'" /></p>
+
+<p>SSH into the RPi</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh pi@raspberrypi.local</code></pre></figure>
+
+<p>Update packages</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>apt update <span class="nt">-y</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span></code></pre></figure>
+
+<h3 id="2-set-up-remote-development-on-vs-code">2. Set up remote development on VS Code</h3>
+<p>Follow the steps from the <a href="https://code.visualstudio.com/docs/remote/ssh-tutorial">VS Code documentation</a> to set up remote development.</p>
+
+<h3 id="3-enable-python-virtual-environment">3. Enable python virtual environment</h3>
+<p>I had to <a href="https://www.raspberrypi.com/documentation/computers/os.html#pip">install pip</a> since Bullseye Lite didn’t seem to have it.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Install pip</span>
+pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>python3-pip <span class="nt">-y</span>
+
+<span class="c"># Install virtualenv</span>
+pi@raspberrypi:~ <span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install </span>virtualenv
+
+<span class="c"># Create virtual environment</span>
+pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">mkdir </span>lantern <span class="o">&amp;&amp;</span> <span class="nb">cd </span>lantern
+pi@raspberrypi:~/lantern <span class="nv">$ </span>python <span class="nt">-m</span> virtualenv .venv
+
+<span class="c"># Activate the environment</span>
+pi@raspberrypi:~/lantern &amp; <span class="nb">.</span> .venv/bin/activate
+
+<span class="o">(</span>.venv<span class="o">)</span> pi@raspberrypi:~/lantern <span class="nv">$ </span></code></pre></figure>
+
+<h3 id="4-flash-the-onboard-led">4. Flash the onboard LED</h3>
+
+<p>The PWR LED on the RPi 3 B+ (And also probably for 4) is the red one which lights up when the RPi is powered.</p>
+
+<p>You can write to a sysfs entry <code class="language-plaintext highlighter-rouge">/sys/class/leds/led1/trigger</code> to temporary change the LED behavior.
+You can <code class="language-plaintext highlighter-rouge">cat</code> out the contents of the entry to see which options you have available.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>.venv<span class="o">)</span> pi@raspberrypi:~/lantern <span class="nv">$ </span><span class="nb">cat</span> /sys/class/leds/led1/trigger
+none rc-feedback kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 <span class="o">[</span>default-on] input panic actpwr mmc1 mmc0 rfkill-any rfkill-none rfkill0 rfkill1
+<span class="o">(</span>.venv<span class="o">)</span> pi@raspberrypi:~/lantern <span class="nv">$ </span></code></pre></figure>
+
+<p>This is a very simple python function I wrote to flash the onboard PWR LED for 5 seconds.</p>
+
+<p><a href="https://github.com/massivebugs/lantern-robot/blob/32efb091b1569b6e598e5b47fcd9286f2b84ef04/main.py#L1-L17">View this on GitHub</a></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">heartbeat</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="s">""" Flashes the onboard PWR LED for a few seconds """</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">geteuid</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'You need root permission to run heartbeat()!'</span><span class="p">)</span> 
+        <span class="k">return</span>
+
+    <span class="n">subprocess</span><span class="p">.</span><span class="n">check_output</span><span class="p">(</span><span class="s">"echo heartbeat | tee /sys/class/leds/led1/trigger &gt; /dev/null"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="s">"echo default-on | tee /sys/class/leds/led1/trigger &gt; /dev/null"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">heartbeat</span><span class="p">()</span></code></pre></figure>
+
+<p>Heartbeating the LED is so simple and because of it’s name I think it is really suited for being the first code to be run on a robot.</p>
+
+<video src="/assets/videos/lantern_devnote_flashing_led.mp4" style="max-width: 600px" controls="" loop="" muted=""></video>]]></content><author><name></name></author><category term="lantern" /><category term="python" /><category term="robots" /><category term="raspberry-pi" /><summary type="html"><![CDATA[This is part 3 of a series of my Lantern robot project. In the “Lantern Dev Note” series of posts, I will be walking through the process I take to develop the robot. Since I’m not so experienced with robot projects, I will start small, and develop incrementally one at a time. I’m using a Windows 10 PC and a Raspberry Pi 3 B+ for development.]]></summary></entry><entry><title type="html">Plans for a new Robot project 2</title><link href="/2022/07/06/robot-project-plans-2" rel="alternate" type="text/html" title="Plans for a new Robot project 2" /><published>2022-07-06T00:00:00+09:00</published><updated>2022-07-06T00:00:00+09:00</updated><id>/2022/07/06/robot-project-plans-2</id><content type="html" xml:base="/2022/07/06/robot-project-plans-2"><![CDATA[<p>This is part 2 of a series of my <a href="/post-group/lantern">Lantern robot project</a>.<br />
+I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.<br />
 I made a few very rough sketches and designs of some of the ideas I have for this robot.</p>
 
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
@@ -104,9 +184,9 @@ I made a few very rough sketches and designs of some of the ideas I have for thi
   <li>LED Light with different lighting modes</li>
   <li>Detachable sensor modules</li>
   <li>4 to 9 DOF tripod with hopefully some amount of shock absorption</li>
-</ul>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[This is part 2 of a series of my new robot project posts. Part 1]]></summary></entry><entry><title type="html">Plans for a new Robot project 1</title><link href="http://localhost:4000/2022/06/30/robot-project-plans-1" rel="alternate" type="text/html" title="Plans for a new Robot project 1" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>http://localhost:4000/2022/06/30/robot-project-plans-1</id><content type="html" xml:base="http://localhost:4000/2022/06/30/robot-project-plans-1"><![CDATA[<p>I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.</p>
-
-<p>I expect the design to look something like this:</p>
+</ul>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[This is part 2 of a series of my Lantern robot project. I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern. I made a few very rough sketches and designs of some of the ideas I have for this robot.]]></summary></entry><entry><title type="html">Plans for a new Robot project 1</title><link href="/2022/06/30/robot-project-plans-1" rel="alternate" type="text/html" title="Plans for a new Robot project 1" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/robot-project-plans-1</id><content type="html" xml:base="/2022/06/30/robot-project-plans-1"><![CDATA[<p>This is part 1 of a series of my <a href="/post-group/lantern">Lantern robot project</a>.<br />
+I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.<br />
+I expect the design to look something like this:</p>
 
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
@@ -278,7 +358,7 @@ Plus, I was far too broke to buy decent components for my robots.</p>
 
 <p>2~3 years later, which is now, I want to make a new robot. Just for fun, and to see how far I have gotten.</p>
 
-<p>Even though I have only been focusing on the software part, I hope I will enjoy the building process with a more calm and fresh mind.</p>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern.]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses</title><link href="http://localhost:4000/2022/06/30/portswigger-academy-authentication-password-based-2" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>http://localhost:4000/2022/06/30/portswigger-academy-authentication-password-based-2</id><content type="html" xml:base="http://localhost:4000/2022/06/30/portswigger-academy-authentication-password-based-2"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.<br />
+<p>Even though I have only been focusing on the software part, I hope I will enjoy the building process with a more calm and fresh mind.</p>]]></content><author><name></name></author><category term="robots" /><category term="arduino" /><category term="raspberry-pi" /><summary type="html"><![CDATA[This is part 1 of a series of my Lantern robot project. I am going to build a small robot, which I can easily carry around and use as a camera &amp; lantern. I expect the design to look something like this:]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses</title><link href="/2022/06/30/portswigger-academy-authentication-password-based-2" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via subtly different responses" /><published>2022-06-30T00:00:00+09:00</published><updated>2022-06-30T00:00:00+09:00</updated><id>/2022/06/30/portswigger-academy-authentication-password-based-2</id><content type="html" xml:base="/2022/06/30/portswigger-academy-authentication-password-based-2"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.<br />
 This time, the error messages in the login page seemed be a little more generic and identical..?</p>
 
 <h3 id="password-based-login-2---username-enumeration-via-subtly-different-responses">Password-based login 2 - Username enumeration via subtly different responses</h3>
@@ -318,7 +398,7 @@ I also grepped for “Invalid username or password.”</p>
 
     <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-2-3.mp4" controls="" loop="" muted=""></video>
   </li>
-</ol>]]></content><author><name></name></author><category term="portswigger-web-academy" /><category term="burp-suite" /><category term="brute-force" /><category term="authentication" /><summary type="html"><![CDATA[In this lab, I used Burp to enumerate usernames and brute force the password of a user. This time, the error messages in the login page seemed be a little more generic and identical..?]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses</title><link href="http://localhost:4000/2022/06/26/portswigger-academy-authentication-password-based-1" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses" /><published>2022-06-26T00:00:00+09:00</published><updated>2022-06-26T00:00:00+09:00</updated><id>http://localhost:4000/2022/06/26/portswigger-academy-authentication-password-based-1</id><content type="html" xml:base="http://localhost:4000/2022/06/26/portswigger-academy-authentication-password-based-1"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.</p>
+</ol>]]></content><author><name></name></author><category term="portswigger-web-academy" /><category term="burp-suite" /><category term="brute-force" /><category term="authentication" /><summary type="html"><![CDATA[In this lab, I used Burp to enumerate usernames and brute force the password of a user. This time, the error messages in the login page seemed be a little more generic and identical..?]]></summary></entry><entry><title type="html">PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses</title><link href="/2022/06/26/portswigger-academy-authentication-password-based-1" rel="alternate" type="text/html" title="PortSwigger Academy notes - Authentication, Password-based login Username enumeration via different responses" /><published>2022-06-26T00:00:00+09:00</published><updated>2022-06-26T00:00:00+09:00</updated><id>/2022/06/26/portswigger-academy-authentication-password-based-1</id><content type="html" xml:base="/2022/06/26/portswigger-academy-authentication-password-based-1"><![CDATA[<p>In this lab, I used Burp to enumerate usernames and brute force the password of a user.</p>
 
 <h3 id="password-based-login-1---username-enumeration-via-different-responses">Password-based login 1 - Username enumeration via different responses</h3>
 
@@ -360,7 +440,7 @@ I also grepped for “Invalid username or password.”</p>
 
     <video src="/assets/videos/portswigger-academy-notes/authentication-password-based-1-3.mp4" controls="" loop="" muted=""></video>
   </li>
-</ol>]]></content><author><name></name></author><category term="portswigger-web-academy" /><category term="burp-suite" /><category term="brute-force" /><category term="authentication" /><summary type="html"><![CDATA[In this lab, I used Burp to enumerate usernames and brute force the password of a user.]]></summary></entry><entry><title type="html">PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage</title><link href="http://localhost:4000/2022/06/11/portswigger-academy-burp-setup" rel="alternate" type="text/html" title="PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage" /><published>2022-06-11T00:00:00+09:00</published><updated>2022-06-11T00:00:00+09:00</updated><id>http://localhost:4000/2022/06/11/portswigger-academy-burp-setup</id><content type="html" xml:base="http://localhost:4000/2022/06/11/portswigger-academy-burp-setup"><![CDATA[<p>A quick note on getting Burp set up for the labs quickly, 
+</ol>]]></content><author><name></name></author><category term="portswigger-web-academy" /><category term="burp-suite" /><category term="brute-force" /><category term="authentication" /><summary type="html"><![CDATA[In this lab, I used Burp to enumerate usernames and brute force the password of a user.]]></summary></entry><entry><title type="html">PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage</title><link href="/2022/06/11/portswigger-academy-burp-setup" rel="alternate" type="text/html" title="PortSwigger Academy Notes - Setting up Burp Suite Community Edition for basic usage" /><published>2022-06-11T00:00:00+09:00</published><updated>2022-06-11T00:00:00+09:00</updated><id>/2022/06/11/portswigger-academy-burp-setup</id><content type="html" xml:base="/2022/06/11/portswigger-academy-burp-setup"><![CDATA[<p>A quick note on getting Burp set up for the labs quickly, 
 intended for using Burp’s integrated Chromium browser.</p>
 
 <ol>
