@@ -47,6 +47,7 @@ plugins:
 #
 exclude:
     - widgets_src
+    - vendor
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
