@@ -13,13 +13,14 @@
 
    sudo apt install build-essential zlib1g-dev libyaml-dev libssl-dev
    
-   asdf install ruby 3.2.2
+   asdf install ruby 2.7.4
 
-   asdf local ruby 3.2.2
+   asdf local ruby 2.7.4
    ```
 
 3. Serve
     ```
     bundle install
+
     bundle exec jekyll serve --livereload
     ```
