@@ -1,0 +1,10 @@
+global:
+  not_found: Nothing to show yet
+  tags: Tags
+post_group:
+    lantern:
+      description: I am going to build a small robot, which I can easily carry around and use as a camera & lantern.
+    cybersecurity_study_notes:
+      description: Summarized notes about any cybersecurity concepts I learn.
+    software-development:
+      description: Notes and tips regarding software dev concepts

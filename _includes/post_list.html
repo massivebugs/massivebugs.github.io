@@ -1,0 +1,49 @@
+{% if filter_post_group %}
+{% assign posts = site.posts | where: 'post_group', filter_post_group %}
+{% else %}
+{% assign posts = site.posts %}
+{% endif %}
+
+{% if posts.size > 0 %}
+<ul class="post-list">
+  {% assign posts = posts | sort: post.date | reverse %}
+  {% for post in posts limit:page.post_list_limit %}
+  {% assign post_group = site.post_groups | where: 'short_name', post.post_group | first %}
+  <li class="post-list-item" data-date="{{post.date}}">
+    <a class="exec" data-exec="less {{ site.baseurl }}{{post.url | downcase | replace: " ", " _"}}"
+      href="{{ site.baseurl }}{{ post.url }}">
+      {{ post.title }}
+    </a>
+    <small style="display: block">
+      <i>{{ post.date | date_to_string }}</i>
+      {% if post_group %}
+      in <i><a class="exec" data-exec="less {{ site.baseurl }}{{post_group.url | downcase | replace: " ", " _"}}"
+          href="{{ site.baseurl }}{{ post_group.url }}">{{ post_group.name }}</a></i>
+      {% endif %}
+    </small>
+    <div class="excerpt">
+      {{ post.excerpt }}
+      <small><a href="{{ site.baseurl }}{{post.url}}">Continue reading...</a></small>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>{% t global.not_found %}</p>
+{% endif %}
+
+<script>
+  window.addEventListener('load', function () {
+    const titleElms = document.querySelectorAll('.post-list-item')
+    for (let i = 0; i < titleElms.length; i++) {
+      if (titleElms[i].dataset.date) {
+        datePost = new Date(titleElms[i].dataset.date).getTime();
+        const dateToday = new Date();
+        const dateNewPostThreshold = dateToday.setDate(dateToday.getDate() - 7)
+        if (dateNewPostThreshold < datePost) {
+          titleElms[i].classList.add('new-post')
+        }
+      }
+    }
+  })
+</script>

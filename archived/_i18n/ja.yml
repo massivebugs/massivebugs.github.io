@@ -1,0 +1,10 @@
+global:
+  not_found: まだ何もありません
+  tags: タグ
+post_group:
+    lantern:
+      description: 小さくて、持ち歩き安い、カメラと道を照らす機能付きのランタン型のロボットを作りたいと思います。
+    cybersecurity_study_notes:
+      description: 簡単にまとまれたサイバーセキュリティー勉強関連ノート。
+    software-development:
+      description: 開発に関するメモやまとめ。

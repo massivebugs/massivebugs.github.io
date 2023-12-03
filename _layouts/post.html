@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<div class="post">
+  <h1>{{ page.title }}</h1>
+
+  <p>
+    <small>
+      <i>{{ page.date | date_to_string }}</i>
+      {% assign post_group = site.post_groups | where: 'short_name', page.post_group | first %}
+      {% if post_group %}
+      in <i><a class="exec" data-exec="cd {{ site.baseurl }}{{post_group.url | downcase | replace: " ", " _"}}"
+          href="{{ site.baseurl }}{{ post_group.url }}">{{ post_group.name }}</a></i>
+      {% endif %}
+      <span style="display: block">{% t global.tags %}: {{ page.tags | join: ", " }}</span>
+    </small>
+  </p>
+
+  {{ content }}
+</div>

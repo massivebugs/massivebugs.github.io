@@ -1,0 +1,24 @@
+---
+layout: default
+title: Projects
+permalink: /post-groups/
+---
+<h1>Post Groups</h1>
+
+{% if site.post_groups.size > 0 %}
+<ul>
+  {% for post_group in site.post_groups %}
+  <li>
+    <h2>
+      <a class="exec" data-exec="cd {{post_group.url | downcase | replace: " ", " _"}}" href="{{ site.baseurl }}{{ post_group.url }}">
+        {{ post_group.name }}
+      </a>
+    </h2>
+    <h3>{{ post_group.position }}</h3>
+    <p>{{ post_group.excerpt | markdownify }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+{% t global.not_found %}
+{% endif %}

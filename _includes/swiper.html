@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<style>
+    .swiper {
+        height: 400px;
+    }
+
+    .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+    }
+
+    .swiper-slide>* {
+        max-height: 100%;
+    }
+</style>
+<div class="swiper" id="{{include.id}}">
+    <div class="swiper-wrapper">
+        {% assign split_items = include.items | split : "|" %}
+        {% for item in split_items %}
+        <div class="swiper-slide">
+            {{item}}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div>
+<p style="text-align: center; padding-top: 1em;">
+    {{ include.description }}
+</p>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    new Swiper('#{{include.id}}', {
+        // Optional parameters
+        loop: true,
+        effect: 'cube',
+        autoplay: {
+            delay: 2000
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '#{{include.id}} .swiper-pagination',
+        },
+    });
+</script>

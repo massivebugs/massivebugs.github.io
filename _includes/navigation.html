@@ -1,0 +1,27 @@
+<header>
+  <a class="exec exec-hash" data-exec="cd ~" href="{{ site.baseurl }}/">
+    {{ site.title }}
+  </a>
+  <nav>
+    <ul>
+      {% for item in site.data.navigation %}
+      <li>
+        <a class="exec" 
+          data-exec="cd {{ site.baseurl }}{{item.link}}" 
+          href="{{ site.baseurl }}{{ item.link }}" 
+          {% if page.url==item.link %} 
+            class="current" 
+          {% endif %}
+          >
+            {{ item.name }}
+          </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <div class="lang-select">
+    <!-- <a href="{{ site.baseurl_root }}{{ page.url }}">EN</a> -->
+    <!-- <a href="{{ site.baseurl_root }}/ja{{ page.url }}">JA</a> -->
+    <!-- <a href="{{ site.baseurl_root }}/ko/{{ page.url }}">KO</a> -->
+  </div>
+</header>

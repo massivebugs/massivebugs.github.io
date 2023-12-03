@@ -1,0 +1,6 @@
+global:
+  not_found: Nothing to show yet
+  tags: Tags
+post_group:
+    cybersecurity_study_notes:
+      description: Summarized notes about any cybersecurity concepts I learn.

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head lang="{{ site.lang | default: " en-US" }}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>{{ site.title }} - {{ page.title }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="{{'/assets/icons/dripicons/webfont/webfont.css' | prepend: site.baseurl_root}}">
+    <link rel="stylesheet" href="{{'/assets/css/normalize.css' | prepend: site.baseurl_root }}">
+    <link rel="stylesheet" href="{{'/assets/css/water.min.css' | prepend: site.baseurl_root }}">
+    <link rel="stylesheet" href="{{'/assets/css/fruity.css' | prepend: site.baseurl_root }}">
+    <link rel="stylesheet" href="{{'/assets/css/styles.css' | prepend: site.baseurl_root }}">
+    {% feed_meta %}
+    {% seo %}
+    {% if jekyll.environment == "production" %}
+    <!-- Something for production here -->
+    {% endif %}
+</head>
+
+<body>
+    {% include navigation.html %}
+    {{ content }}
+    <script src="{{'/assets/js/main.js'}}"></script>
+</body>
+
+</html>

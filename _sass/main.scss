@@ -1,0 +1,222 @@
+$margin-small: 0.3rem;
+$margin-normal: 0.8rem;
+$margin-big: 1.6rem;
+$padding-small: 0.3em;
+$padding-normal: 0.8em;
+$padding-big: 1.6em;
+$gap-small: 0.3rem;
+$gap-normal: 0.8rem;
+$gap-big: 1.6rem;
+
+body {
+  background-color: #fefefe;
+  padding: 0 20px 25% 20px !important;
+  max-width: 1000px;
+
+  &,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(56, 56, 56) !important;
+  }
+}
+
+[class^="dripicons-"]:before,
+[class*=" dripicons-"]:before {
+  position: relative;
+  top: 0.2em;
+}
+
+header {
+  position: relative;
+  display: flex;
+
+  > a {
+    margin-right: $margin-big;
+    font-weight: bold;
+    transition: color 0.2s;
+
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+
+  ul {
+    display: flex;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    gap: $gap-big;
+
+    li {
+      margin-bottom: 0;
+      margin-right: $margin-small;
+    }
+  }
+
+  .lang-select {
+    position: absolute;
+    right: 0;
+  }
+}
+
+section {
+  margin-top: $margin-big;
+  margin-bottom: $margin-big;
+}
+
+.post {
+  video,
+  img {
+    border: 1px solid black;
+  }
+}
+
+.new-post::before {
+  content: "New!";
+  position: relative;
+  background-color: rgb(249, 100, 89);
+  color: white;
+  border-radius: 5em;
+  padding: 0.1em 0.5em;
+  font-size: 0.7em;
+  margin-right: 0.2em;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .bio {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: start;
+
+    & > *:not(:last-child) {
+      margin-right: $margin-big;
+    }
+  }
+}
+
+.profile-pic {
+  width: 10em;
+}
+
+.post-list {
+  > li {
+    margin-bottom: $margin-normal;
+  }
+}
+
+.excerpt {
+  margin-top: $margin-small;
+  padding: $padding-normal;
+  background-color: #ececec;
+
+  > p {
+    margin: 0;
+  }
+}
+
+// HOVER TERM EFFECT
+.exec {
+  position: relative;
+
+  &.exec-hash:before {
+    content: "$ ";
+  }
+
+  &:hover {
+    z-index: 1;
+    color: transparent;
+
+    &:before {
+      content: "$ ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;
+      color: greenyellow;
+    }
+
+    &:after {
+      content: attr(data-exec);
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      left: 1em;
+      font-weight: normal;
+      letter-spacing: 0.15em;
+      background-color: black;
+      color: greenyellow;
+
+      overflow: hidden;
+      margin: 0 auto;
+      animation: typing 0.3s steps(20, end), blink-caret 0.6s step-end infinite 1s;
+    }
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: calc(100% - 1em);
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-right: 0.15em solid greenyellow;
+  }
+}
+
+// Overrides
+// assets/css/fruity.css
+.highlight {
+  margin: 0;
+  color: white;
+  > pre {
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    overflow-x: auto;
+  }
+}
+
+// BREAKPOINTS
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}
